@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Users</title>
+    <link rel='stylesheet' href='/assets/style.css' />
+  </head>
+  <body>
+    <%- include('../../components/navbar') %>
+    <a href="/users/create">Add</a>
+      <h1>Daftar Users (<%= users.length %>) </h1>
+      <form action="/users">
+        <input type="text" name="search">
+        <button type="submit">Cari</button>
+      </form>
+    <ul>
+      <% if(users.length > 0) { %> 
+        <% users.forEach(function(user){ %>
+          <li>
+            <!-- Json -->
+            <!-- <a href="/user/<%= user.id %> ">
+              <%= user.name.toUpperCase() %>
+            </a> -->
+
+            <!-- MongoDB - _id karena susunan schema dari mongodb -->
+            <a href="/user/<%= user._id %> ">
+              <%= user.name.toUpperCase() %>
+            </a>
+          </li>
+        <% }); %>
+      <% }else { %>
+        <p>Data kosong</p>
+      <% } %> 
+    </ul>
+  </body>
+</html>

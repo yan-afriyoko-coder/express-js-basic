@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Users</title>
+    <link rel='stylesheet' href='/assets/style.css' />
+  </head>
+  <body>
+    <%- include('../../components/navbar') %>
+    <a href="/users">Back</a>
+     <h1>Detail</h1>
+    <ul>
+      <!-- Json - hapus spasi antara < dan % untuk menjalankan json -->
+      <!-- <li>Name : <strong>< %= user[0].name %></strong> </li>
+      <li>Email : <strong>< %= user[0].email %></strong> </li> -->
+      
+      <!-- MongoDb -->
+      <li>Name : <strong><%= user.name %></strong> </li>
+      <li>Email : <strong><%= user.email %></strong> </li>
+    </ul>
+    
+    <a href="/user/<%= user._id %>/edit">Edit</a>
+    <a href="/user/<%= user._id %>">Delete</a>
+
+  </body>
+</html>
